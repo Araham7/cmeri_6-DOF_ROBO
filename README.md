@@ -274,13 +274,12 @@ rostopic pub /sr_l6/joint_cmd std_msgs/Float64MultiArray "data: [0.1, 0.5, -0.3,
 
 # 🟩 **Setup Completed Successfully** 🎉
 
-### You now have a complete Ubuntu Server system with:
+You now have a complete Ubuntu Server system with:
 
-· XFCE desktop environment for graphical interface
-· Real-time kernel for improved robotics performance
-· ROS Noetic framework for robot software development
-· Savya SR-L6 driver for controlling the 6-axis robot arm
-· Essential ROS packages including MoveIt for motion planning and RViz for visualization
+* XFCE desktop environment for graphical interface
+* Real-time kernel for improved robotics performance
+* ROS Noetic framework for robot software development
+* Savya SR-L6 driver for controlling the 6-axis robot arm
+* Essential ROS packages including MoveIt for motion planning and RViz for visualization
 
 The system is ready for developing and running robotics applications with the SR-L6 robotic arm.
-```
