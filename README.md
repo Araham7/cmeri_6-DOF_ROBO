@@ -264,25 +264,17 @@ rostopic pub /sr_l6/joint_cmd std_msgs/Float64MultiArray "data: [0.1, 0.5, -0.3,
 
 ---
 
-# 🟦 Useful ROS Documentation Links
+# 🟦 **Useful ROS Documentation Links**
 
-# ROS Tutorials
-
-👉 http://wiki.ros.org/ROS/Tutorials
-
-# MoveIt Motion Planning
-
-👉 https://moveit.ros.org/
-
-# RViz Visualization
-
-👉 http://wiki.ros.org/rviz
+* **ROS Tutorials:** [http://wiki.ros.org/ROS/Tutorials](http://wiki.ros.org/ROS/Tutorials)
+* **MoveIt Motion Planning:** [https://moveit.ros.org/](https://moveit.ros.org/)
+* **RViz Visualization:** [http://wiki.ros.org/rviz](http://wiki.ros.org/rviz)
 
 ---
 
-🟩 Setup Completed
+# 🟩 **Setup Completed Successfully** 🎉
 
-You now have a complete Ubuntu Server system with:
+### You now have a complete Ubuntu Server system with:
 
 · XFCE desktop environment for graphical interface
 · Real-time kernel for improved robotics performance
