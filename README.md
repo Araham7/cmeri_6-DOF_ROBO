@@ -1,6 +1,6 @@
 <!-- Istallation of `ubuntu 24.04 lts(noble numbat)` -->
-### 1. The latest LTS version of Ubuntu, for desktop PCs and laptops. LTS stands for long-term support — which means five years of free security and maintenance updates, extended up to 15 years with Ubuntu Pro.
-# [Ubuntu 24.04 `lts`(noble numbat)](https://ubuntu.com/download/desktop)
+### The latest LTS version of Ubuntu, for desktop PCs and laptops. LTS stands for long-term support — which means five years of free security and maintenance updates, extended up to 15 years with Ubuntu Pro.
+# 1. [Ubuntu 24.04 `lts`(noble numbat)](https://ubuntu.com/download/desktop)
 
 <!-- ROS2-Jazzy-Installation-Manual -->
 # 2. [Installation of `ROS2-jazzy` guide](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
