@@ -7,7 +7,7 @@
 
 
 <!-- Gazebo-Installation-Manual -->
-# 3. [Installation of `Gazibo-harmonic(LTS))` guide](https://gazebosim.org/docs/harmonic/install_ubuntu/)
+# 3. [Installation of `Gazibo-harmonic(LTS)` guide](https://gazebosim.org/docs/harmonic/install_ubuntu/)
 
 
 >[CLICK ME(To view the importent Image)](https://gazebosim.org/docs/latest/ros_installation/)
