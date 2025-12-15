@@ -17,7 +17,6 @@ Gazebo-Installation-Manual
 
 
 
- # README.md  
 ## Deterministic Robot Control Using Ubuntu Server + PREEMPT_RT + Python
 
 ---
