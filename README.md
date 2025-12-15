@@ -162,6 +162,7 @@ PREEMPT_RT
 # ✅ System is now running a Real-Time Linux kernel.
 
 # 10. CPU & Power Optimization (CRITICAL)
+
 ## 10.1 Disable CPU Frequency Scaling
 
 
@@ -219,6 +220,90 @@ while True:
 ```
 * ⚠️ CPU usage will be high
 * ✅ Timing will be stable
+
+- [x] <span style="background-color: #d32f2f; color: white; padding: 2px 8px; border-radius: 3px;">❗ **IMPORTANT**</span>
+
+## **Overall Explanation:**
+This is a **timing control loop** that runs at a fixed frequency (1000 Hz / 1 ms period). It ensures that `send_robot_command()` is called exactly once every millisecond, making it **deterministic** because the timing is predictable and consistent.
+
+---
+
+## **Line-by-Line Explanation:**
+
+```python
+import time
+```
+Imports Python's `time` module, which provides time-related functions like `perf_counter_ns()` for high-resolution timing.
+
+---
+
+```python
+PERIOD_NS = 1_000_000  # 1 ms = 1000 Hz
+```
+Sets the loop period to **1,000,000 nanoseconds**, which equals 1 millisecond.  
+This corresponds to a frequency of 1000 Hz (1000 times per second).  
+The underscore (`1_000_000`) is just for readability and doesn't affect the value.
+
+---
+
+```python
+next_t = time.perf_counter_ns()
+```
+Gets the current time in **nanoseconds** using a high-resolution timer and stores it in `next_t`.  
+This is our reference point for the first loop iteration.
+
+---
+
+```python
+while True:
+```
+Starts an infinite loop that will run forever until interrupted.
+
+---
+
+```python
+    send_robot_command()
+```
+Calls the function that sends commands to the robot.  
+This is the main task we want to execute **every 1 ms**.
+
+---
+
+```python
+    next_t += PERIOD_NS
+```
+Increases `next_t` by 1,000,000 nanoseconds (1 ms).  
+This sets the **exact time** when the next loop iteration should start.
+
+---
+
+```python
+    while time.perf_counter_ns() < next_t:
+        pass
+```
+This is a **busy-wait loop** that does nothing but continuously check the current time until it reaches `next_t`.  
+It ensures the loop doesn't proceed until exactly 1 ms has passed since the last iteration started.
+
+---
+
+## **Why This is a Deterministic Loop:**
+
+1. **Fixed Period**: Every iteration takes **exactly** 1 ms (in an ideal scenario, ignoring tiny variations due to OS scheduling).
+2. **No Drift**: It uses an **absolute time reference** (`next_t`), not a relative sleep. This means timing errors don't accumulate over time.
+3. **Predictable Execution**: The `send_robot_command()` function is called at **precise, predictable intervals**, which is critical for real-time control systems like robotics.
+
+---
+
+## **Potential Issues in Practice:**
+
+- **Busy Waiting**: The `pass` loop consumes 100% CPU core while waiting.
+- **OS Interference**: On a non-real-time OS (like Windows/Linux desktop), other processes can cause small delays.
+- **Function Duration**: If `send_robot_command()` takes longer than 1 ms, the timing will break.
+
+---
+
+## **Key Concept:**
+This implements a **software-based timer** without relying on `time.sleep()`, which can be less accurate due to OS scheduling. It's a simple form of **real-time cycle control** used in robotics, gaming, and simulation.
 
 # 13. Ethernet Optimization (Very Important)
 Recommended settings:
